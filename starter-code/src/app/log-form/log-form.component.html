@@ -1,0 +1,22 @@
+<form class="message-form" (ngSubmit)="submitForm(myForm); showItems()" #myForm="ngForm" novalidate>
+  <p class="title-form"> Person
+    <input type="text" name="person" [(ngModel)]="person" required 
+    #myPerson="ngModel"/>
+  </p>
+  <div *ngIf="myPerson.errors && (myPerson.dirty || myPerson.touched)">
+    <p class="error" [hidden]="!myPerson.errors.required">
+      Person must be indicated
+    </p>
+  </div>
+  <p class="title-form"> Message
+    <input type="text" name="message" [(ngModel)]="message" required 
+     #myMessage="ngModel"/>
+  </p>
+  <div *ngIf="myMessage.errors && (myMessage.dirty || myMessage.touched)">
+    <p class="error" [hidden]="!myMessage.errors.required">
+      Message must be indicated
+    </p>
+  </div>
+  
+  <button type="submit"> Create Log</button>
+</form>
